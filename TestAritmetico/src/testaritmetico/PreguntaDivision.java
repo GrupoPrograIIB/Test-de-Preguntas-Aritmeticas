@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TestAritmético;
+package testaritmetico;
 
 /**
  *
@@ -15,8 +15,8 @@ public class PreguntaDivision implements PreguntaEntera {
 
     public PreguntaDivision() {
 
-        a = (int) (Math.random() * 50 + 1);
-        b = (int) (Math.random() * 50);
+        this.a = (int) (Math.random() * 50 + 1);
+        this.b = (int) (Math.random() * 50);
 
     }
 
@@ -29,4 +29,6 @@ public class PreguntaDivision implements PreguntaEntera {
     public int getRespuestaCorrecta() {
         return a / b;
     }
+
+
 }

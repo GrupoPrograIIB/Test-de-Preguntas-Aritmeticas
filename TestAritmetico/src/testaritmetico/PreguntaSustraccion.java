@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TestAritmético;
+package testaritmetico;
+
 
 /**
  *
@@ -14,8 +15,8 @@ public class PreguntaSustraccion implements PreguntaEntera {
     private int a, b;
 
     public PreguntaSustraccion() {
-        a = (int) (Math.random() * 50 + 1);
-        b = (int) (Math.random() * 50);
+        this.a = (int) (Math.random() * 50 + 1);
+        this.b = (int) (Math.random() * 50);
 
     }
     @Override
@@ -26,5 +27,6 @@ public class PreguntaSustraccion implements PreguntaEntera {
     public int getRespuestaCorrecta(){
         return a-b;
     }
+
 
 }
