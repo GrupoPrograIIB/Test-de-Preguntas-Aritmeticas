@@ -11,29 +11,29 @@ package testaritmetico;
  */
 public class Test {
 
-    PreguntaAdicion a = new PreguntaAdicion();
-    PreguntaSustraccion s = new PreguntaSustraccion();
-    PreguntaMultiplicacion m = new PreguntaMultiplicacion();
-    PreguntaDivision d = new PreguntaDivision();
-    String[] lista = new String[10];// Array para guardar las preguntas
-    int[] respuesta = new int[10];// Array para guardar las respuestas
-    int n = 0;
+    private static PreguntaAdicion a = new PreguntaAdicion();
+    private static PreguntaSustraccion s = new PreguntaSustraccion();
+    private static PreguntaMultiplicacion m = new PreguntaMultiplicacion();
+    private static PreguntaDivision d = new PreguntaDivision();
+    private static String[] lista = new String[10];// Array para guardar las preguntas
+    private static int[] respuesta = new int[10];// Array para guardar las respuestas
+    private static int n = 0;
 
     // En el meto "generarPregunta" el parametro "int n" debe recibir valores de (Math.random() * 3 + 1) y "int numPregunta" recibe el numero de pregunta
-    public String generarPregunta(int n, int numPregunta) {
+    public static String generarPregunta(int n, int numPregunta) {
         String out = "";
         if (n == 1) {
             out = a.getPregunta();
-            this.n = 1;
+            Test.n = 1;
         } else if (n == 2) {
             out = s.getPregunta();
-            this.n = 2;
+            Test.n = 2;
         } else if (n == 3) {
             out = m.getPregunta();
-            this.n = 3;
+            Test.n = 3;
         } else if (n == 4) {
             out = d.getPregunta();
-            this.n = 4;
+            Test.n = 4;
         }
         numPregunta--;
         lista[numPregunta] = out;
