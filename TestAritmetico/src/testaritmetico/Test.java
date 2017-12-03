@@ -41,39 +41,61 @@ public class Test {
         return out;
     }
 
-    private void generarRespuesta(int numPregunta) {
+    public static int generarRespuesta(int numPregunta) {
         numPregunta--;
         if (n == 1) {
-            this.respuesta[numPregunta] = a.getRespuestaCorrecta();
+            return  a.getRespuestaCorrecta();
         } else if (n == 2) {
-            this.respuesta[numPregunta] = s.getRespuestaCorrecta();
+            return s.getRespuestaCorrecta();
         } else if (n == 3) {
-            this.respuesta[numPregunta] = m.getRespuestaCorrecta();
-        } else if (n == 4) {
-            this.respuesta[numPregunta] = d.getRespuestaCorrecta();
+            return m.getRespuestaCorrecta();
+        } else {
+            return d.getRespuestaCorrecta();
         }
-
     }
-
+    
     // El metodo "verificarRespuesta" guarda la repuesta en un array para despues presentarlo en las respuestas:
     // Falta verificar si la respuesta es correcta en esta clase
-    public void verificarRespuesta(int respuesta, int numPregunta) {
-        
-        this.generarRespuesta(numPregunta);
-        numPregunta--;
-        if (this.respuesta[numPregunta] == respuesta) {
-            System.out.printf("La respuesta es correcta");
-        } else {
-            System.out.printf("RESPUEDTA INCORRECTA:\n la respuesta correcta a la pregunta " + lista[numPregunta] + " es: " + this.respuesta[numPregunta]);
-
-        }
-    }
-
-    public void listaRespuesta() {
-        String out = "";
+    public  static String verificarRespuesta(int [] respuestasUser) {
+        String out ="";
         for (int i = 0; i < 10; i++) {
-            out += "PREGUNTA " + (i + 1) + "\n" + lista[i] + "\n\t Su respuesta: " + respuesta[i] + "\n";
+            out += "PREGUNTA " + (i + 1) + "\n"+lista[i];
+            if (respuestasUser[i]==0) {
+                out+="Pregunta no contestada\n";
+                
+            }else if(respuestasUser[i]!=respuesta[i]){
+                out+="\n\t Su respuesta: " + respuesta[i] + "\n"+"Incorrecta: \nLa repuesta correcta es:"+respuesta[i]+"\n";
+            }else{
+                if(respuestasUser[i]==respuesta[i]){
+                    out+="\n\t Su respuesta: " + respuesta[i] + "\n"+"Respuesta Correcta\n";
+                }
+                    
+            }
         }
-        System.out.println(out);
+        return out;
+        
+        
     }
+
+   
+
+    public static String[] getLista() {
+        return lista;
+    }
+
+    public static void setLista(String[] lista) {
+        Test.lista= lista;
+    }
+
+    public static int[] getRespuesta() {
+        return respuesta;
+    }
+
+    public static void setRespuesta(int[] respuesta) {
+        Test.respuesta = respuesta;
+    }
+
+    
+    
+    
 }

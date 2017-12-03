@@ -17,15 +17,21 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         String test[] = new String[11];
+        String test2[] = new String[10];
+        int respCorrectas[] = new int[10];
         int opc, resp[] = new int[10];
         boolean band = true;
-
+        
         for (int i = 0; i < 10; i++) {
             int n = (int) (Math.random() * 4 + 1);
+            test2[i] = Test.generarPregunta(n, (i + 1));
             test[i] = (i + 1) + " )  " + Test.generarPregunta(n, (i + 1)) + "\n";
+            respCorrectas[i] = Test.generarRespuesta(n);
         }
+        Test.setLista(test2);
+        Test.setRespuesta(resp);
         test[10] = "11 )  Verficar";
         
         do {
@@ -62,14 +68,13 @@ public class Principal {
                     resp[9] = Integer.parseInt(JOptionPane.showInputDialog(test[9], "Ingrese su respuesta"));
                     break;
                 case 11:
+                    JOptionPane.showMessageDialog(null, Test.verificarRespuesta(resp));
                     band = false;
                     break;
-                default: JOptionPane.showMessageDialog(null, "ELija una opcion valida (1 - 10)");
+                default:
+                    JOptionPane.showMessageDialog(null, "ELija una opcion valida (1 - 10)");
             }
         } while (band);
         
-        for (int i = 0; i < 10; i++) {
-            System.out.println(resp[i]);
-        }
     }
 }
