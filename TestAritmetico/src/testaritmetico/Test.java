@@ -75,7 +75,7 @@ public class Test {
             if (respuestasUser[i] == 0) {
                 out += "Pregunta no contestada\n";
 
-            } else if (respuestasUser[i] != respuesta[i] && respuestasUser[i] == 0) {
+            } else if (respuestasUser[i] != respuesta[i]) {
                 out += "Su respuesta: " + respuestasUser[i] + "\n" + "Incorrecta: \nLa repuesta correcta es:" + respuesta[i] + "\n";
             } else {
                 if (respuestasUser[i] == respuesta[i]) {
