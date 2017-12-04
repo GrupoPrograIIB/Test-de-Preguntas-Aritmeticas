@@ -17,13 +17,12 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         String test[] = new String[11];
         String test2[] = new String[10];
         int respCorrectas[] = new int[10];
-        int opc, respuestasUser[] = new int[10];
-        boolean band = true;
-        
+        int respuestasUser[] = new int[10];
+
         for (int i = 0; i < 10; i++) {
             int n = (int) (Math.random() * 4 + 1);
             test2[i] = Test.generarPregunta(n, (i + 1));
@@ -31,9 +30,36 @@ public class Principal {
             respCorrectas[i] = Test.generarRespuesta(n);
         }
         Test.setLista(test2);
-        Test.setRespuesta(respuestasUser);
+        Test.setRespuesta(respCorrectas);
         test[10] = "11 )  Verficar";
-        
+
+        int op = 0;
+
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "Escoga una opcion:\n1 Resolver Test\n2 Ver Respuestas\n3 Calificar\n4 Salir"));
+            switch (op) {
+                case 1:// Resolver Test
+                    respuestasUser = Principal.resolverTest(test);
+                    break;
+                case 2:// Ver Respuestas
+                    JOptionPane.showMessageDialog(null, Test.mensajeRespuesta(respuestasUser));
+                    break;
+                case 3:// Calificar
+                    JOptionPane.showMessageDialog(null, Test.calificacion(respuestasUser));
+                    break;
+                case 4:// Salir
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "ELija una opcion valida (1 - 4)");
+            }
+
+        } while (op != 4);
+    }
+
+    public static int[] resolverTest(String []test) {
+        int[] respuestasUser = new int[10];
+        boolean band = true;
+        int opc;
         do {
             opc = Integer.parseInt(JOptionPane.showInputDialog(test, "Elija la pregunta que desea responer"));
             switch (opc) {
@@ -69,14 +95,12 @@ public class Principal {
                     break;
                 case 11:
                     JOptionPane.showMessageDialog(null, Test.mensajeRespuesta(respuestasUser));
-                    JOptionPane.showMessageDialog(null, Test.calificacion(respuestasUser));
-                    
                     band = false;
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "ELija una opcion valida (1 - 10)");
             }
         } while (band);
-        
+        return respuestasUser;
     }
 }
