@@ -18,6 +18,7 @@ public class Test {
     private static String[] lista = new String[10];// Array para guardar las preguntas
     private static int[] respuesta = new int[10];// Array para guardar las respuestas
     private static int n = 0;
+    private static int calificacion = 0;
 
     // En el meto "generarPregunta" el parametro "int n" debe recibir valores de (Math.random() * 3 + 1) y "int numPregunta" recibe el numero de pregunta
     public static String generarPregunta(int n, int numPregunta) {
@@ -44,7 +45,7 @@ public class Test {
     public static int generarRespuesta(int numPregunta) {
         numPregunta--;
         if (n == 1) {
-            return  a.getRespuestaCorrecta();
+            return a.getRespuestaCorrecta();
         } else if (n == 2) {
             return s.getRespuestaCorrecta();
         } else if (n == 3) {
@@ -53,38 +54,44 @@ public class Test {
             return d.getRespuestaCorrecta();
         }
     }
-    
+
+    //guarda la calificacion para luego presentar la calificacion total que el usuario obtuvo
+    public static String calificacion(int[] respuestasUser) {
+        for (int i = 0; i < 10; i++) {
+            if (respuestasUser[i] == respuesta[i] && respuestasUser[i] != 0) {
+                Test.calificacion += 10;
+            }
+        }
+        String cali = "Su calificacion es: " + calificacion;
+        return cali;
+    }
     // El metodo "verificarRespuesta" guarda la repuesta en un array para despues presentarlo en las respuestas:
     // Falta verificar si la respuesta es correcta en esta clase
-    public  static String verificarRespuesta(int [] respuestasUser) {
-        String out ="";
+    public static String mensajeRespuesta(int[] respuestasUser) {
+        String out = "";
         for (int i = 0; i < 10; i++) {
-            out += "PREGUNTA " + (i + 1) + "\n"+lista[i];
-            if (respuestasUser[i]==0) {
-                out+="Pregunta no contestada\n";
-                
-            }else if(respuestasUser[i]!=respuesta[i]){
-                out+="\n\t Su respuesta: " + respuesta[i] + "\n"+"Incorrecta: \nLa repuesta correcta es:"+respuesta[i]+"\n";
-            }else{
-                if(respuestasUser[i]==respuesta[i]){
-                    out+="\n\t Su respuesta: " + respuesta[i] + "\n"+"Respuesta Correcta\n";
+            out += "        PREGUNTA " + (i + 1) + "\n" + lista[i] + "\n";
+            if (respuestasUser[i] == 0) {
+                out += "Pregunta no contestada\n";
+
+            } else if (respuestasUser[i] != respuesta[i] && respuestasUser[i] == 0) {
+                out += "Su respuesta: " + respuesta[i] + "\n" + "Incorrecta: \nLa repuesta correcta es:" + respuesta[i] + "\n";
+            } else {
+                if (respuestasUser[i] == respuesta[i]) {
+                    out += "Su respuesta: " + respuesta[i] + "\n" + "Respuesta Correcta\n";
                 }
-                    
+
             }
         }
         return out;
-        
-        
     }
-
-   
 
     public static String[] getLista() {
         return lista;
     }
 
     public static void setLista(String[] lista) {
-        Test.lista= lista;
+        Test.lista = lista;
     }
 
     public static int[] getRespuesta() {
@@ -95,7 +102,4 @@ public class Test {
         Test.respuesta = respuesta;
     }
 
-    
-    
-    
 }
