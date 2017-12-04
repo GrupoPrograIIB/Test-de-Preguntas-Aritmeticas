@@ -42,8 +42,8 @@ public class Test {
         return out;
     }
 
-    public static int generarRespuesta(int numPregunta) {
-        numPregunta--;
+    public static int generarRespuesta() {
+        
         if (n == 1) {
             return a.getRespuestaCorrecta();
         } else if (n == 2) {
@@ -67,7 +67,6 @@ public class Test {
         return cali;
     }
     // El metodo "verificarRespuesta" guarda la repuesta en un array para despues presentarlo en las respuestas:
-    // Falta verificar si la respuesta es correcta en esta clase
     public static String mensajeRespuesta(int[] respuestasUser) {
         String out = "";
         for (int i = 0; i < 10; i++) {

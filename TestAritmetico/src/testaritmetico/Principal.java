@@ -27,7 +27,7 @@ public class Principal {
             int n = (int) (Math.random() * 4 + 1);
             test2[i] = Test.generarPregunta(n, (i + 1));
             test[i] = (i + 1) + " )  " + Test.generarPregunta(n, (i + 1)) + "\n";
-            respCorrectas[i] = Test.generarRespuesta(n);
+            respCorrectas[i] = Test.generarRespuesta();
         }
         Test.setLista(test2);
         Test.setRespuesta(respCorrectas);
