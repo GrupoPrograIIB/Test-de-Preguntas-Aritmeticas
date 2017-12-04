@@ -55,8 +55,8 @@ public class Test {
         }
     }
 
-    //el metodo "calificacion" guarda la nota obtenida por cada pregunta correcta
-    //para luego presentar  la ccalificacion global que el usuario obtuvo
+    //el método "calificacion" guarda la nota obtenida por cada pregunta correcta
+    //para luego presentar  la calificación global que el usuario obtuvo
     public static String calificacion(int[] respuestasUser) {
         for (int i = 0; i < 10; i++) {
             if (respuestasUser[i] == respuesta[i] && respuestasUser[i] != 0) {
