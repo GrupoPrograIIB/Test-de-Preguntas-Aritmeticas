@@ -14,8 +14,7 @@ public class PreguntaAdicion implements PreguntaEntera{
     
     
     /**
-     * @param PreguntaAdicion() sera nuestro constructor en el cual this.a tendra 
-     * un valor entero aleatorioentre ente (Math.random()*50+1).
+     * Constructor PreguntaAdicion,en el cual this.a tendra un valor entero aleatorioentre ente (Math.random()*50+1).
      * De la misma forma this.b tendra el valor entero aleatorio entre (Math.random()*50)
      */
     public  PreguntaAdicion(){
