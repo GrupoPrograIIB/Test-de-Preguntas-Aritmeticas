@@ -15,8 +15,7 @@ public class PreguntaDivision implements PreguntaEntera {
     
     
      /**
-     * @param PreguntaDivision() sera nuestro constructor en el cual this.a tendra 
-     * un valor entero aleatorioentre ente (Math.random()*50+1).
+     * Construtor PreguntaDivision , en el cual this.a tendra un valor entero aleatorioentre ente (Math.random()*50+1).
      * De la misma forma this.b tendra el valor entero aleatorio entre (Math.random()*50)
      */
 
@@ -29,7 +28,7 @@ public class PreguntaDivision implements PreguntaEntera {
     
      
     /**
-     * @param getPregunta() será el método sobre escrito para la clase PreguntaDivisión en el cual se hace la pregunta al usuario
+     * Método getPregunta, será sobrescrito para la clase PreguntaDivisión en el cual se hace la pregunta al usuario
      * sobre cuál será el resultado de la división de los valores asignados para a y b. 
      * de los valores asignados para a y b; 
      */
@@ -42,7 +41,7 @@ public class PreguntaDivision implements PreguntaEntera {
     
      
     /**
-     * @param getRespuestaCorrecta() sera el método sobre escrito para la clase PreguntaDivisión en la que se realizará la división
+     * Método getRespuestaCorrecta, será sobrescrito para la clase PreguntaDivisión en la que se realizará la división
      * de los valores asignados para a y b; 
      */
 
