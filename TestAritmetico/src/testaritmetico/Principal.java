@@ -14,11 +14,15 @@ import javax.swing.JOptionPane;
 public class Principal {
 
     /**
-     * @param args the command line arguments
+     * Método Principal, es nuestra clase ejecutable en la que se presentara un menú que contendrá las opciones que serán presentadas
+     * al usuario. Las opciónes mostradas en el switch serán: Resolver test, ver respuesta, calificar y finalmente salir que se 
+     * presentarán dentro de un bucle "do while".   
+     * 
      */
     public static void main(String[] args) {
-
-        String test[] = new String[11];
+        
+   
+        String test[] = new String[11]; 
         String test2[] = new String[10];
         int respCorrectas[] = new int[10];
         int respuestasUser[] = new int[10];
@@ -55,6 +59,14 @@ public class Principal {
 
         } while (op != 4);
     }
+    
+    
+    
+    /**
+     * Método resolverTest, en el se ha creado un arreglo tipo entero en el que se almacenaran las respuestas dadas por el
+     * usuario.Las opciónes mostradas en el switch estarán entre (0-11) que serán equivalentes a las dies respuestas del encuestado 
+     * más la opcion 11  la cual expondra un mensaje en el que se le presentará sus respuestas en un listado. 
+     */
 
     public static int[] resolverTest(String []test) {
         int[] respuestasUser = new int[10];
