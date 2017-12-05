@@ -5,12 +5,12 @@
  */
 package testaritmetico;
 
-
 /**
  *
  * @author Camila Cueva
  */
 public class PreguntaMultiplicacion implements PreguntaEntera{
+    
     private int a,b;
     
     /**
@@ -23,7 +23,6 @@ public class PreguntaMultiplicacion implements PreguntaEntera{
         this.b = (int) (Math.random() * 50);
     }
     
-    
     /**
      * Método getPregunta,será sobrescrito para la clase PreguntaMultiplicacion en el cual se hace la pregunta al usuario
      * sobre cuál será el resultado de la multiplicación de los valores asignados para a y b. 
@@ -33,7 +32,6 @@ public class PreguntaMultiplicacion implements PreguntaEntera{
      public String getPregunta(){
         return "Cuanto es:"+a+" * "+b+"?";
     }
-    
          
     /**
      * Método getRespuestaCorrecta,sera el método sobrescrito para la clase PreguntaMultiplicacion en la que se realizará la 
@@ -44,6 +42,4 @@ public class PreguntaMultiplicacion implements PreguntaEntera{
     public int getRespuestaCorrecta(){
         return a*b;
     }
-
-    
 }

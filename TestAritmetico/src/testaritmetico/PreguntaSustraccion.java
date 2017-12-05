@@ -5,7 +5,6 @@
  */
 package testaritmetico;
 
-
 /**
  *
  * @author Camila Cueva
@@ -25,7 +24,6 @@ public class PreguntaSustraccion implements PreguntaEntera {
 
     }
     
-    
     /**
      * Método getPregunta,será el método sobrescrito para la clase PreguntaSustraccion en el cual se hace la pregunta al usuario
      * sobre cuál será el resultado de la sustracción de los valores asignados para a y b.
@@ -43,6 +41,4 @@ public class PreguntaSustraccion implements PreguntaEntera {
     public int getRespuestaCorrecta(){
         return a-b;
     }
-
-
 }

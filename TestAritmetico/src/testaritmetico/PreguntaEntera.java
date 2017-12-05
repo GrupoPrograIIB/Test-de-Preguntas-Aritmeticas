@@ -15,12 +15,11 @@ public interface PreguntaEntera {
  *
  * Clase PreguntaEntera implementa interfaz, la cual contiene los metodos getPregunta que retornará
  * una cadena de caracteres; y el método getRespuestaCorrecta que nos devolverá un entero como respuesta. 
+ * 
  */
 
     public String getPregunta();
 
     public int getRespuestaCorrecta();
-        
-    
-
+   
 }

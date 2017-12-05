@@ -66,6 +66,9 @@ public class Principal {
      * Método resolverTest, en el se ha creado un arreglo tipo entero en el que se almacenaran las respuestas dadas por el
      * usuario.Las opciónes mostradas en el switch estarán entre (0-11) que serán equivalentes a las dies respuestas del encuestado 
      * más la opcion 11  la cual expondra un mensaje en el que se le presentará sus respuestas en un listado. 
+     * 
+     * @param test String[], arreglo que contiene el test
+     * 
      */
 
     public static int[] resolverTest(String []test) {
