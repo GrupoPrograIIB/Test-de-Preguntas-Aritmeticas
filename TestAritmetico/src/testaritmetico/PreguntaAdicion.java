@@ -25,8 +25,8 @@ public class PreguntaAdicion implements PreguntaEntera{
     
     
     /**
-     * @param getPregunta() será el método sobre escrito para la clase PreguntaAdicion en el cual se hace la pregunta al usuario
-     * sobre cuál será el resultado de la adición de los valores asignados para a y b. 
+     * Método getPregunta, será sobrescrito para la clase PreguntaAdicion, en el cual se hace la pregunta al usuario
+     * sobre ¿cuál será el resultado de la adición de los valores asignados para a y b?. 
      */
         
     @Override
@@ -36,7 +36,7 @@ public class PreguntaAdicion implements PreguntaEntera{
     
     
     /**
-     * @param getRespuestaCorrecta() sera el método sobre escrito para la clase PreguntaAdicion en la que se realizará la suma
+     * Método getRespuestaCorrecta, será sobrescrito para la clase PreguntaAdicion en la que se realizará la suma
      * de los valores asignados para a y b; 
      */
     
