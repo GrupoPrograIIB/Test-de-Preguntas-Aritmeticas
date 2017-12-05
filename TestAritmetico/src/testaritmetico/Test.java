@@ -23,7 +23,8 @@ public class Test {
     /**
      * Método generarPregunta, aquí el parametro "int n" debe recibir valores de (Math.random() * 3 + 1) y "int numPregunta" 
      *recibe el numero de pregunta
-     * 
+     * @param n int, representa la operacion a realizar
+     * @param numPregunta int, es el numero de pregunta
      */
     
     public static String generarPregunta(int n, int numPregunta) {
@@ -47,7 +48,6 @@ public class Test {
         return out;
     }
     
-    
      /**
      * Método generarRespuesta, retornará una respuesta correcta a partir del cumplimiento de los condicionales.
      * 
@@ -66,7 +66,6 @@ public class Test {
         }
     }
     
-    
     /**
      * Método calificacion , guardará la nota obtenida por cada pregunta correcta para luego presentar  la calificación 
      * global que el usuario obtuvo. 
@@ -82,9 +81,11 @@ public class Test {
         return cali;
     }
     
-    
     /**
      * Método mensajeRespuesta , guardará la repuesta en un array para despues presentarlo en las respuestas:
+     * 
+     * @param respuestasUser int, es la respuesta del usuario
+     * 
      */
     
     public static String mensajeRespuesta(int[] respuestasUser) {
@@ -121,5 +122,4 @@ public class Test {
     public static void setRespuesta(int[] respuesta) {
         Test.respuesta = respuesta;
     }
-
 }
