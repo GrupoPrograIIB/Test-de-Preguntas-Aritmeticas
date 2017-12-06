@@ -5,6 +5,8 @@
  */
 package testaritmetico;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -15,7 +17,7 @@ import javax.swing.JOptionPane;
 public class Principal {
 
     private static String testResuelto;
-    ArrayList<Usuario> usuarios = new ArrayList<>();
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
 
     /**
      * Método Principal, es nuestra clase ejecutable en la que se presentara un
@@ -43,8 +45,9 @@ public class Principal {
         test[10] = "11 )  Verficar";
 
         int op = 0;
-        
-        
+        testResuelto = "        TEST ARITMETICO     \n\n";
+        String ced = JOptionPane.showInputDialog("Ingresar numero de cedula");
+        Usuario u = nuevoUsuario(ced);
 
         do {
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "Escoga una opcion:\n1 Resolver Test\n2 Ver Respuestas\n3 Calificar\n4 Salir"));
@@ -59,6 +62,8 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, Test.calificacion(respuestasUser));
                     break;
                 case 4:// Salir
+                    testResuelto += u;
+                    System.out.println(u);
                     testResuelto += Test.mensajeRespuesta(respuestasUser) + "\n";
                     testResuelto += Test.calificacion(respuestasUser);
                     Test.escribirTest(testResuelto);
@@ -70,7 +75,7 @@ public class Principal {
         } while (op != 4);
     }
 
-    private Usuario nuevoUsuario(String cedula) {
+    private static Usuario nuevoUsuario(String cedula) {
         String nombre = JOptionPane.showInputDialog("Ingresar nombre usuario");
         String ciclo = JOptionPane.showInputDialog("Ingresar cicloque cursa el usuario");
         String paralelo = JOptionPane.showInputDialog("Ingresar paralelo al que pertenece el usuario");
@@ -78,16 +83,17 @@ public class Principal {
         return u;
     }
 
-    public void verificarUsuario() {
+    private static Usuario verificarUsuario() {
         String ced = JOptionPane.showInputDialog("Ingresar numero de cedula");
         Usuario u = new Usuario(ced);
         for (Usuario usuario : usuarios) {
-            if (usuario == u) {
+            if (!u.equals(usuario)) {
                 usuario.setNumTest(usuario.getNumTest() + 1);
             } else {
                 u = nuevoUsuario(ced);
             }
         }
+        return u;
     }
 
     /**
