@@ -5,6 +5,7 @@
  */
 package testaritmetico;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,16 +14,20 @@ import javax.swing.JOptionPane;
  */
 public class Principal {
 
+    private static String testResuelto;
+    ArrayList<Usuario> usuarios = new ArrayList<>();
+
     /**
-     * Método Principal, es nuestra clase ejecutable en la que se presentara un menú que contendrá las opciones que serán presentadas
-     * al usuario. Las opciónes mostradas en el switch serán: Resolver test, ver respuesta, calificar y finalmente salir que se 
-     * presentarán dentro de un bucle "do while".   
-     * 
+     * Método Principal, es nuestra clase ejecutable en la que se presentara un
+     * menú que contendrá las opciones que serán presentadas al usuario. Las
+     * opciónes mostradas en el switch serán: Resolver test, ver respuesta,
+     * calificar y finalmente salir que se presentarán dentro de un bucle "do
+     * while".
+     *
      */
     public static void main(String[] args) {
-        
-   
-        String test[] = new String[11]; 
+
+        String test[] = new String[11];
         String test2[] = new String[10];
         int respCorrectas[] = new int[10];
         int respuestasUser[] = new int[10];
@@ -38,6 +43,8 @@ public class Principal {
         test[10] = "11 )  Verficar";
 
         int op = 0;
+        
+        
 
         do {
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "Escoga una opcion:\n1 Resolver Test\n2 Ver Respuestas\n3 Calificar\n4 Salir"));
@@ -52,6 +59,9 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, Test.calificacion(respuestasUser));
                     break;
                 case 4:// Salir
+                    testResuelto += Test.mensajeRespuesta(respuestasUser) + "\n";
+                    testResuelto += Test.calificacion(respuestasUser);
+                    Test.escribirTest(testResuelto);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "ELija una opcion valida (1 - 4)");
@@ -59,19 +69,38 @@ public class Principal {
 
         } while (op != 4);
     }
-    
-    
-    
-    /**
-     * Método resolverTest, en el se ha creado un arreglo tipo entero en el que se almacenaran las respuestas dadas por el
-     * usuario.Las opciónes mostradas en el switch estarán entre (0-11) que serán equivalentes a las dies respuestas del encuestado 
-     * más la opcion 11  la cual expondra un mensaje en el que se le presentará sus respuestas en un listado. 
-     * 
-     * @param test String[], arreglo que contiene el test
-     * 
-     */
 
-    public static int[] resolverTest(String []test) {
+    private Usuario nuevoUsuario(String cedula) {
+        String nombre = JOptionPane.showInputDialog("Ingresar nombre usuario");
+        String ciclo = JOptionPane.showInputDialog("Ingresar cicloque cursa el usuario");
+        String paralelo = JOptionPane.showInputDialog("Ingresar paralelo al que pertenece el usuario");
+        Usuario u = new Usuario(nombre, cedula, ciclo, paralelo);
+        return u;
+    }
+
+    public void verificarUsuario() {
+        String ced = JOptionPane.showInputDialog("Ingresar numero de cedula");
+        Usuario u = new Usuario(ced);
+        for (Usuario usuario : usuarios) {
+            if (usuario == u) {
+                usuario.setNumTest(usuario.getNumTest() + 1);
+            } else {
+                u = nuevoUsuario(ced);
+            }
+        }
+    }
+
+    /**
+     * Método resolverTest, en el se ha creado un arreglo tipo entero en el que
+     * se almacenaran las respuestas dadas por el usuario.Las opciónes mostradas
+     * en el switch estarán entre (0-11) que serán equivalentes a las dies
+     * respuestas del encuestado más la opcion 11 la cual expondra un mensaje en
+     * el que se le presentará sus respuestas en un listado.
+     *
+     * @param test String[], arreglo que contiene el test
+     *
+     */
+    public static int[] resolverTest(String[] test) {
         int[] respuestasUser = new int[10];
         boolean band = true;
         int opc;
