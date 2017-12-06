@@ -97,7 +97,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "\nCedula: " + cedula + "\nCiclo: " + ciclo + "\nParalelo: " + paralelo + "\n\n";
+        return "Nombre: " + nombre + "\nCedula: " + cedula + "\nCiclo: " + ciclo + "\nParalelo: " + paralelo + "\nTest N°:" + numTest + "\n\n";
     }
     
 }
