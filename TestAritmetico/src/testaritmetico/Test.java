@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package testaritmetico;
+    
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 /**
  *
@@ -15,7 +18,7 @@ public class Test {
     private static PreguntaSustraccion s = new PreguntaSustraccion();
     private static PreguntaMultiplicacion m = new PreguntaMultiplicacion();
     private static PreguntaDivision d = new PreguntaDivision();
-    private static String[] lista = new String[10];// Array para guardar las preguntas
+    private static String[] test = new String[10];// Array para guardar las preguntas
     private static int[] respuesta = new int[10];// Array para guardar las respuestas
     private static int n = 0;
     private static int calificacion = 0;
@@ -43,7 +46,7 @@ public class Test {
             Test.n = 4;
         }
         numPregunta--;
-        lista[numPregunta] = out;
+        test[numPregunta] = out;
 
         return out;
     }
@@ -91,15 +94,15 @@ public class Test {
     public static String mensajeRespuesta(int[] respuestasUser) {
         String out = "";
         for (int i = 0; i < 10; i++) {
-            out += "        PREGUNTA " + (i + 1) + "\n" + lista[i] + "\n";
+            out += "        PREGUNTA " + (i + 1) + "\n" + test[i] + "\n";
             if (respuestasUser[i] == 0) {
                 out += "Pregunta no contestada\n";
 
             } else if (respuestasUser[i] != respuesta[i]) {
-                out += "Su respuesta: " + respuestasUser[i] + "\n" + "Incorrecta: \nLa repuesta correcta es:" + respuesta[i] + "\n";
+                out += "Su respuesta: " + respuestasUser[i] + "\n" + "Incorrecta: \nLa repuesta correcta es:" + respuesta[i] + "\n" + "Calificacion: " + 0 + "\n";
             } else {
                 if (respuestasUser[i] == respuesta[i]) {
-                    out += "Su respuesta: " + respuesta[i] + "\n" + "Respuesta Correcta\n";
+                    out += "Su respuesta: " + respuesta[i] + "\n" + "Respuesta Correcta\n" + "Calificacion: " + 10 + "\n";
                 }
 
             }
@@ -107,12 +110,26 @@ public class Test {
         return out;
     }
 
+    /**
+     * Método escribe un archivo del test resuelto y calificado
+     * @param test 
+     */
+    public static void escribirTest(String test){
+        try (BufferedWriter out = new BufferedWriter(new FileWriter("Test.txt"))){
+            out.write(test);
+            out.close();
+        } catch (Exception e) {
+            System.out.println("Error al escribir el archivo" + e);
+        }
+        
+    }
+    
     public static String[] getLista() {
-        return lista;
+        return test;
     }
 
-    public static void setLista(String[] lista) {
-        Test.lista = lista;
+    public static void setLista(String[] test) {
+        Test.test = test;
     }
 
     public static int[] getRespuesta() {
